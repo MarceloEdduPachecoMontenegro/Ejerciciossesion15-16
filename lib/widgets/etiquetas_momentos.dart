@@ -31,9 +31,9 @@ class _EtiquetaMomento extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: AppColors.navy.withOpacity(0.08),
+        color: AppColors.navy.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.navy.withOpacity(0.25)),
+        border: Border.all(color: AppColors.navy.withValues(alpha: 0.25)),
       ),
       child: Text(
         momento.etiqueta,

@@ -57,7 +57,7 @@ class _CabeceraEstablecimiento extends StatelessWidget {
             height: 56,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: AppColors.navy.withOpacity(0.1),
+              color: AppColors.navy.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(14),
             ),
             child: const Icon(
@@ -133,8 +133,8 @@ class _TarjetaUbicacion extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Icon(Icons.map_outlined, color: AppColors.navy, size: 20),
               SizedBox(width: 8),
               Text(

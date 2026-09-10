@@ -3,16 +3,12 @@ import '../models/oportunidad.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_layout.dart';
 import '../widgets/tarjeta_base.dart';
+import 'pantalla_cumplimiento.dart';
 import 'pantalla_establecimiento.dart';
 
 /// Pantalla de bienvenida de ManosSeguras, construida en la Guía de
-/// Práctica N.° 2 (Sesiones 4-5) aplicando los widgets básicos
-/// (Text, Container, Icon) y las técnicas de espaciado (padding,
-/// margin) y anidamiento de widgets.
-///
-/// Incluye la tarjeta "Los 5 Momentos", que presenta el catálogo
-/// oficial de la OMS/MINSA como introducción antes de auditar
-/// cualquier establecimiento.
+/// Práctica N.° 2 (Sesiones 4-5) y actualizada para dar acceso al
+/// Panel de Cumplimiento (Variante B).
 class PantallaBienvenida extends StatelessWidget {
   const PantallaBienvenida({super.key});
 
@@ -30,6 +26,8 @@ class PantallaBienvenida extends StatelessWidget {
               _TarjetaCincoMomentos(),
               const SizedBox(height: 24),
               _BotonComenzar(),
+              const SizedBox(height: 12),
+              _BotonCumplimiento(),
             ],
           ),
         ),
@@ -65,7 +63,7 @@ class _Encabezado extends StatelessWidget {
             'Auditoría digital de higiene de manos, alineada a la '
             'RM N.° 255-2016/MINSA y al ODS 3 (Salud y bienestar).',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
               fontSize: 14,
               height: 1.4,
             ),
@@ -83,8 +81,8 @@ class _TarjetaCincoMomentos extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Icon(Icons.checklist_rtl, color: AppColors.navy),
               SizedBox(width: 8),
               Text(
@@ -163,6 +161,26 @@ class _BotonComenzar extends StatelessWidget {
         },
         icon: const Icon(Icons.arrow_forward),
         label: const Text('Comenzar auditoría'),
+      ),
+    );
+  }
+}
+
+class _BotonCumplimiento extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 52,
+      child: OutlinedButton.icon(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const PantallaCumplimiento(),
+            ),
+          );
+        },
+        icon: const Icon(Icons.bar_chart),
+        label: const Text('Ver Panel de Cumplimiento'),
       ),
     );
   }
