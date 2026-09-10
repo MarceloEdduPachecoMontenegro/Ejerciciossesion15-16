@@ -1,0 +1,24 @@
+name: manos_seguras
+description: >
+  ManosSeguras — Digitalización Flutter del instrumento oficial de
+  auditoría de higiene de manos (RM N.° 255-2016/MINSA), desarrollado
+  como proyecto guiado de las Guías de Práctica N.° 2, 3 y 4 del curso
+  SIS048 - Desarrollo de Software II (UAC).
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
