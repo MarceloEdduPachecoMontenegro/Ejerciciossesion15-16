@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/pantalla_bienvenida.dart';
+import 'router/app_router.dart';
 import 'theme/app_theme.dart';
 import 'theme/tema_app.dart';
 
@@ -15,13 +15,13 @@ class ManosSegurasApp extends StatelessWidget {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: temaApp,
       builder: (context, modoActual, _) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'ManosSeguras',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.theme,
           darkTheme: AppTheme.darkTheme,
           themeMode: modoActual,
-          home: const PantallaBienvenida(), // Inicio original
+          routerConfig: appRouter, // Centraliza la navegación declarativa con go_router
         );
       },
     );
